@@ -16,15 +16,16 @@
 
 package com.mongodb.hadoop.pig;
 
+import com.mongodb.BasicDBObject;
+import com.mongodb.DBObject;
+
 import java.util.List;
 
-class BasicDBObjectFactory implements DBObjectFactory {
-    @Override
+class BasicDBObjectFactory  {
     public DBObject getInstance() {
         return new BasicDBObject();
     }
 
-    @Override
     public DBObject getInstance(final List<String> path) {
         return new BasicDBObject();
     }

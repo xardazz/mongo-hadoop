@@ -187,7 +187,8 @@ public class MyDBObjectCodec implements CollectibleCodec<DBObject> {
             encodeArray(bsonWriter, value);
         } else if (value instanceof Symbol) {
             bsonWriter.writeSymbol(((Symbol) value).getSymbol());
-		} else if (value == Float.NaN || value == Double.NaN) {
+		} else if (value.equals(Float.NaN) || value.equals(Double.NaN)) {
+			bsonWriter.writeString("NaN");
         } else {
             Codec codec = codecRegistry.get(value.getClass());
             codec.encode(bsonWriter, value, encoderContext);
